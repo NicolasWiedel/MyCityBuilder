@@ -1,13 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour
 {
+    // delegate
+    private Action<Vector3> OnPointerDownHandler;
     public LayerMask mouseInputMask;
-
-    //public GameObject buildingPrefab;
 
     // Update is called once per frame
     void Update()
@@ -28,17 +29,21 @@ public class InputManager : MonoBehaviour
             if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity, mouseInputMask))
             {
                 Vector3 position = hit.point - transform.position;
+
+                // if ther are any subscribers of the delegate
+                // they will be informed
+                OnPointerDownHandler?.Invoke(position);
             }
         }  
     }
 
-    
-    ///// <summary>
-    ///// method for placing Buildings
-    ///// </summary>
-    ///// <param name="gridPosition"></param>
-    //public void CreatBuilding(Vector3 gridPosition)
-    //{
-    //    Instantiate(buildingPrefab, gridPosition, Quaternion.identity);
-    //}
+    public void AddListenerOnPointerDownEvent(Action<Vector3> listener)
+    {
+        OnPointerDownHandler += listener;
+    }
+
+    public void RemoveListenerOnPointerDownEvent(Action<Vector3> listener)
+    {
+        OnPointerDownHandler -= listener;
+    }
 }

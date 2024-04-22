@@ -6,6 +6,11 @@ public class GridStructure
 {
     private int cellSize;
 
+    public GridStructure(int cellsize)
+    {
+        this.cellSize = cellsize;
+    }
+
     /// <summary>
     /// method, to calculate the position in the Grid
     /// </summary>
