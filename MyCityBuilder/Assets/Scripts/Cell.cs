@@ -11,6 +11,9 @@ public class Cell
 
     public void SetConstruction(GameObject structureModel)
     {
+        if (structureModel == null)
+            return;
+
         this.structureModel = structureModel;
         this.isTaken = true;
     }

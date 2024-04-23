@@ -55,13 +55,46 @@ public class GridStructure
     /// </summary>
     /// <param name="cellIndex"></param>
     /// <returns> if a cell is taken </returns>
-    public bool isCellTaken(Vector2Int cellIndex)
+    public bool IsCellTaken(Vector3 gridPosition)
     {
-        if(cellIndex.x > 0 && cellIndex.x < grid.GetLength(1) &&
-            cellIndex.y > 0 && cellIndex.y < grid.GetLength(1))
+        var cellIndex = CalculateGridIndex(gridPosition);
+
+        if (CheckIndexValidity(cellIndex))
         {
-            return grid[cellIndex.y, cellIndex.y].IsTaken;
+
+            Debug.Log(grid[cellIndex.y, cellIndex.x].IsTaken);
+            return grid[cellIndex.y, cellIndex.x].IsTaken;
         }
-        throw new IndexOutOfRangeException("No valid index " + cellIndex + "in grid!");
+        else
+        {
+            throw new IndexOutOfRangeException("No valid index " + cellIndex + "in grid!");
+        }
+    }
+
+    public void PlaceStructureOnTheGrid(GameObject structure, Vector3 gridPosition)
+    {
+        var cellIndex = CalculateGridIndex(gridPosition);
+
+        if (CheckIndexValidity(cellIndex))
+        {
+            grid[cellIndex.y, cellIndex.x].SetConstruction(structure);
+        }
+        else
+        {
+            throw new IndexOutOfRangeException("No valid index " + cellIndex + "in grid!");
+        }
+    }
+
+    public bool CheckIndexValidity(Vector2Int cellIndex)
+    {
+        if (cellIndex.x >= 0 && cellIndex.x < grid.GetLength(1) &&
+            cellIndex.y >= 0 && cellIndex.y < grid.GetLength(0))
+        {
+            return true;
+        }
+        else
+        {
+            return true;
+        }
     }
 }

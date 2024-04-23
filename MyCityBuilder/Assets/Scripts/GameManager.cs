@@ -21,7 +21,14 @@ public class GameManager : MonoBehaviour
 
     private void HandleInput(Vector3 position)
     {
-        placementManager.CreatBuilding(grid.CalculateGridPosition(position));
+        Vector3 gridPosition = grid.CalculateGridPosition(position);
+
+        if (!grid.IsCellTaken(gridPosition))
+        {
+            placementManager.CreatBuilding(gridPosition, grid);
+        }
+
+        
     }
 
     // Update is called once per frame
