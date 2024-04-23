@@ -8,13 +8,14 @@ public class GameManager : MonoBehaviour
     public PlacementManager placementManager;
     public InputManager inputManager;
 
+    public int width, length;
     private GridStructure grid;
     private int cellSize = 3;
 
     // Start is called before the first frame update
     void Start()
     {
-        grid = new GridStructure(cellSize);
+        grid = new GridStructure(cellSize, width, length);
         inputManager.AddListenerOnPointerDownEvent(HandleInput);
     }
 
