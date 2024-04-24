@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InputManager : MonoBehaviour
+public class InputManager : MonoBehaviour, IInputManager
 {
     // delegate
     private Action<Vector3> OnPointerDownHandler;
@@ -34,7 +34,7 @@ public class InputManager : MonoBehaviour
                 // they will be informed
                 OnPointerDownHandler?.Invoke(position);
             }
-        }  
+        }
     }
 
     public void AddListenerOnPointerDownEvent(Action<Vector3> listener)
