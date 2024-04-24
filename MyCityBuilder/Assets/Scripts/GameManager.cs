@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public PlacementManager placementManager;
     public InputManager inputManager;
+    public UIController uiController;
 
     public int width, length;
     private GridStructure grid;

@@ -17,6 +17,8 @@ public class UIController : MonoBehaviour
     void Start()
     {
         cancelActionPanel.SetActive(false);
+        buildResidentialAreaBtn.onClick.AddListener(OnBuildAreaCallback);
+        cancelActionBtn.onClick.AddListener(OnCancelActionCallback);
     }
 
     // Update is called once per frame
@@ -25,7 +27,17 @@ public class UIController : MonoBehaviour
         
     }
 
+    private void OnBuildAreaCallback()
+    {
+        cancelActionPanel.SetActive(true);
+        OnBuildAreaHandler?.Invoke();
+    }
 
+    private void OnCancelActionCallback()
+    {
+        cancelActionPanel.SetActive(false);
+        OnCancelActionHandler?.Invoke();
+    }
 
     public void AddListenerOnBuildAreaEvent(Action listener)
     {

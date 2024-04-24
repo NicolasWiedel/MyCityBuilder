@@ -245,6 +245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 170861528}
+  - component: {fileID: 170861529}
   m_Layer: 0
   m_Name: UIController
   m_TagString: Untagged
@@ -266,6 +267,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &170861529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170861527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3a232126d650143b42b4443c0ce17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildResidentialAreaBtn: {fileID: 2130595729}
+  cancelActionBtn: {fileID: 1043941441}
+  cancelActionPanel: {fileID: 111020831}
 --- !u!1 &213060110
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placementManager: {fileID: 2139424409}
   inputManager: {fileID: 276840531}
+  uiController: {fileID: 170861529}
   width: 100
   length: 100
 --- !u!4 &305911217
@@ -1556,6 +1573,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565977563}
   m_CullTransparentMesh: 0
+--- !u!114 &2130595729 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5848718218080783631, guid: 352f389ba2a49b842b5e7b9981b0bb27,
+    type: 3}
+  m_PrefabInstance: {fileID: 385385165}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2139424408
 GameObject:
   m_ObjectHideFlags: 0
